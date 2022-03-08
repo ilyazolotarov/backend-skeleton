@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['serverless-stack'],
+  extends: [
+    'serverless-stack',
+    'airbnb-base',
+    'airbnb-typescript/base'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
@@ -18,7 +22,7 @@ module.exports = {
   ignorePatterns: [
     '.eslintrc.js',
     'webpack.config.js',
-    'dist/*.js'
+    'dist/*.js',
   ],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',

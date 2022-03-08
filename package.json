@@ -18,14 +18,15 @@
     "test:sst": "sst test",
     "test": "run-s clean:nest build:nest test:sst",
     "format": "prettier --write \"functions/**/*.ts\" \"app/**/*.ts\"",
-    "lint": "eslint \"{src,functions,app,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,functions,app,test}/**/*.ts\" --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
     "@serverless-stack/cli": "0.67.0",
     "@serverless-stack/resources": "0.67.0",
     "aws-cdk-lib": "2.7.0",
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
@@ -40,9 +41,13 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
     "jest": "^27.2.5",
+    "lint-staged": "^12.3.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
@@ -52,5 +57,9 @@
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "*.md": "prettier --write"
   }
 }
